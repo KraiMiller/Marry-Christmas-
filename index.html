@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102d25">
+<title>Marry-Christmas — новогодние желания</title>
+<style>
+:root{--bg:#0b1714;--panel:#12251f;--panel2:#19342b;--gold:#e5c27b;--cream:#fff7e8;--muted:#b9c9bf;--line:#315044;--pink:#dca9b5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1a3b2e 0,#0b1714 56%);color:var(--cream);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:1000px;margin:auto;padding:22px 16px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:38px}.brand{font-weight:800;letter-spacing:.03em;font-size:19px;color:var(--gold)}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--muted);font-size:13px}.hero{text-align:center;padding:28px 0 34px}.eyebrow{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:12px;font-weight:700}.hero h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(38px,8vw,68px);line-height:1.06;margin:15px 0}.hero p{max-width:590px;margin:0 auto;color:var(--muted);font-size:17px}.decor{font-size:29px;letter-spacing:12px;margin-bottom:15px}.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:24px 0}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--cream);padding:12px 17px;border-radius:12px;font-weight:700}.btn.primary{background:var(--gold);color:#17231b;border-color:var(--gold)}.btn.ghost{background:transparent}.section{margin-top:24px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}.section h2{font-size:25px;margin:0;font-family:Georgia,serif;font-weight:500}.sub{color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.card{background:linear-gradient(145deg,#173128,#10231d);border:1px solid var(--line);border-radius:18px;padding:18px}.card h3{margin:0 0 7px;font-size:19px}.card p{color:var(--muted);margin:7px 0}.avatar{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#2b4a3d;color:var(--gold);font-size:25px;margin-bottom:12px}.tag{display:inline-block;border:1px solid #496b5a;color:#dce9dd;border-radius:999px;padding:4px 9px;font-size:12px;margin:3px 3px 0 0}.empty{text-align:center;padding:30px 18px;color:var(--muted);border:1px dashed var(--line);border-radius:18px}.hidden{display:none!important}.field{margin:14px 0}.field label,.label{display:block;font-weight:700;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0c1b16;color:var(--cream);border:1px solid #426051;border-radius:10px;padding:12px;outline:none}.field textarea{min-height:82px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}.check{border:1px solid var(--line);border-radius:10px;padding:9px;display:flex;gap:8px;align-items:center;color:#e9f0e9}.check input{accent-color:#d8b66f}.formbox{max-width:680px;margin:20px auto}.notice{font-size:13px;color:var(--muted);border-left:3px solid var(--gold);padding:9px 12px;background:#15281f;border-radius:0 8px 8px 0}.footer{text-align:center;color:#84988b;font-size:12px;margin-top:40px}.idea{padding:13px;border-radius:12px;background:#203b2e;margin:8px 0;border:1px solid #3a5c48}.idea b{color:var(--gold)}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:130px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand">✦ MARRY-CHRISTMAS</div><div class="pill">уютный обмен подарками</div></header>
+  <main>
+    <section class="hero">
+      <div class="decor">✦ ❄ ✦</div>
+      <div class="eyebrow">маленькое новогоднее волшебство</div>
+      <h1>Подарки, которые<br>попадают в сердце</h1>
+      <p>Расскажи немного о себе — и подругам будет проще выбрать подарок, даже если вы ещё не знакомы.</p>
+      <div class="actions"><button class="btn primary" id="makeBtn">✧ Заполнить анкету</button><button class="btn ghost" id="ideasBtn">🎁 Подобрать идеи</button></div>
+      <div class="sub">Твои желания — подсказка, а не строгий список правил.</div>
+    </section>
+
+    <section id="formSection" class="section hidden">
+      <div class="card formbox">
+        <div class="sectionhead"><h2>Твоя анкета</h2><button class="btn ghost" id="closeForm">Закрыть</button></div>
+        <form id="profileForm">
+          <div class="field"><label for="name">Как тебя зовут?</label><input id="name" required maxlength="40" placeholder="Имя или никнейм"></div>
+          <div class="field"><label>Что тебе нравится?</label><div id="interests" class="checks"></div></div>
+          <div class="row">
+            <div class="field"><label for="budget">Комфортный бюджет</label><select id="budget"><option>До 1 000 ₽</option><option>1 000–1 500 ₽</option><option selected>1 500–3 000 ₽</option><option>3 000 ₽ и больше</option></select></div>
+            <div class="field"><label for="vibe">Настроение подарка</label><select id="vibe"><option>Уютное и милое</option><option>Практичное</option><option>Красивое и эстетичное</option><option>Необычное и смешное</option><option>Полный сюрприз</option></select></div>
+          </div>
+          <div class="field"><label for="wishlist">Что хотелось бы получить?</label><textarea id="wishlist" placeholder="Например: свеча с запахом ванили, книга, сертификат, что-то для комнаты…"></textarea></div>
+          <div class="field"><label for="avoid">Что лучше не дарить?</label><textarea id="avoid" placeholder="Например: сладости, сильные ароматы, мягкие игрушки…"></textarea></div>
+          <div class="field"><label for="links">Ссылки на желанные вещи (необязательно)</label><textarea id="links" placeholder="Добавь ссылки на товары или идеи"></textarea></div>
+          <div class="notice">В этой версии анкеты сохраняются в памяти только этого браузера на этом устройстве. Для общего доступа подругам нужно подключить онлайн-базу данных.</div>
+          <div class="actions"><button class="btn primary" type="submit">Сохранить анкету</button><button class="btn ghost" type="button" id="cancelForm">Отмена</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="ideasSection" class="section hidden">
+      <div class="card">
+        <div class="sectionhead"><h2>Идеи для подарка</h2><button class="btn ghost" id="closeIdeas">Закрыть</button></div>
+        <p class="sub">Подсказки для вдохновения — выбирай то, что подходит человеку.</p>
+        <div id="ideasList"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><h2>Участницы и их желания</h2><div class="sub">Сохраняй анкеты на этом устройстве и используй их как список идей.</div></div><button class="btn" id="addBtn">+ Анкета</button></div>
+      <div id="profiles" class="grid"></div>
+      <div id="empty" class="empty">🎄 Здесь пока пусто.<br>Добавь первую анкету, чтобы начать.</div>
+    </section>
+  </main>
+  <footer class="footer">Сделано с теплом ✦ MARRY-CHRISTMAS</footer>
+</div>
+<script>
+const categories=["Косметика и уход","Одежда и аксессуары","Украшения","Книги","Игры и технологии","Аниме и фандомы","Уют и декор","Сладости","Творчество","Впечатления","Парфюм","Сюрпризы"];
+const interestBox=document.getElementById('interests');
+categories.forEach((v,i)=>{const l=document.createElement('label');l.className='check';l.innerHTML=`<input type="checkbox" value="${v}"><span>${v}</span>`;interestBox.appendChild(l)});
+let profiles=[];try{profiles=JSON.parse(localStorage.getItem('mc_profiles')||'[]')}catch(e){}
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem('mc_profiles',JSON.stringify(profiles));render()}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){const root=$('profiles');root.innerHTML='';$('empty').classList.toggle('hidden',profiles.length>0);profiles.forEach((p,i)=>{const c=document.createElement('article');c.className='card';c.innerHTML=`<div class="avatar">🎁</div><h3>${esc(p.name)}</h3><p>Бюджет: ${esc(p.budget)}</p><p>${esc(p.vibe)}</p><div>${(p.interests||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>${p.wishlist?`<p><b>Хочется:</b> ${esc(p.wishlist)}</p>`:''}${p.avoid?`<p><b>Не дарить:</b> ${esc(p.avoid)}</p>`:''}${p.links?`<p><b>Ссылки:</b><br>${esc(p.links).replace(/\n/g,'<br>')}</p>`:''}<div class="actions"><button class="btn" data-ideas="${i}">Идеи подарков</button><button class="btn ghost" data-edit="${i}">Изменить</button><button class="btn ghost" data-delete="${i}">Удалить</button></div>`;root.appendChild(c)});}
+function openForm(idx=null){$('profileForm').reset();$('formSection').classList.remove('hidden');$('ideasSection').classList.add('hidden');$('profileForm').dataset.idx=idx===null?'':idx;if(idx!==null){const p=profiles[idx];$('name').value=p.name;$('budget').value=p.budget;$('vibe').value=p.vibe;$('wishlist').value=p.wishlist||'';$('avoid').value=p.avoid||'';$('links').value=p.links||'';[...interestBox.querySelectorAll('input')].forEach(x=>x.checked=(p.interests||[]).includes(x.value))}else{[...interestBox.querySelectorAll('input')].forEach(x=>x.checked=false)}$('formSection').scrollIntoView({behavior:'smooth',block:'start'})}
+function showIdeas(idx=null){const p=idx===null?null:profiles[idx];const ints=p?.interests||[];const ideas=[];if(ints.some(x=>/Косметика|Парфюм/.test(x)))ideas.push(['Набор ухода','Маска для лица, крем для рук или мини-набор ухода — уточни любимые бренды.']);if(ints.some(x=>/Уют|декор/.test(x)))ideas.push(['Уютный набор','Свеча, мягкие носки, красивая кружка или небольшой декор для комнаты.']);if(ints.includes('Книги'))ideas.push(['Книжный подарок','Книга любимого жанра, закладка и небольшой сладкий бонус.']);if(ints.some(x=>/Украшения|Одежда/.test(x)))ideas.push(['Аксессуар','Украшение, брелок, шарф или аксессуар в любимой цветовой гамме.']);if(ints.some(x=>/Игры|технологии/.test(x)))ideas.push(['Для хобби','Аксессуар для устройства, коврик, тематический мерч или подарочная карта.']);if(ints.includes('Творчество'))ideas.push(['Для творчества','Скетчбук, набор маркеров, материалы для рукоделия или мастер-класс.']);if(ints.includes('Впечатления'))ideas.push(['Впечатление','Билет на мероприятие, мастер-класс или совместный поход куда-нибудь.']);if(!ideas.length)ideas.push(['Персональный набор','Собери небольшой набор из 2–3 вещей по интересам человека и добавь открытку от себя.'],['Подарок-впечатление','Кино, мастер-класс, прогулка или сертификат в любимое место.'],['Что-то для уюта','Красивая кружка, свеча, вкусный чай или маленький предмет декора.']);$('ideasList').innerHTML=ideas.map(a=>`<div class="idea"><b>${esc(a[0])}</b><br>${esc(a[1])}</div>`).join('')+(p?.wishlist?`<div class="idea"><b>Пожелания ${esc(p.name)}</b><br>${esc(p.wishlist)}</div>`:'');$('ideasSection').classList.remove('hidden');$('formSection').classList.add('hidden');$('ideasSection').scrollIntoView({behavior:'smooth',block:'start'})}
+$('makeBtn').onclick=()=>openForm();$('addBtn').onclick=()=>openForm();$('closeForm').onclick=$('cancelForm').onclick=()=> $('formSection').classList.add('hidden');$('ideasBtn').onclick=()=>showIdeas();$('closeIdeas').onclick=()=> $('ideasSection').classList.add('hidden');
+$('profileForm').onsubmit=e=>{e.preventDefault();const p={name:$('name').value.trim(),budget:$('budget').value,vibe:$('vibe').value,interests:[...interestBox.querySelectorAll('input:checked')].map(x=>x.value),wishlist:$('wishlist').value.trim(),avoid:$('avoid').value.trim(),links:$('links').value.trim()};if(!p.name)return;const idx=$('profileForm').dataset.idx;if(idx!=='')profiles[Number(idx)]=p;else profiles.push(p);save();$('formSection').classList.add('hidden');};
+$('profiles').onclick=e=>{const t=e.target.closest('button');if(!t)return;if(t.dataset.edit!==undefined)openForm(Number(t.dataset.edit));if(t.dataset.delete!==undefined&&confirm('Удалить анкету?')){profiles.splice(Number(t.dataset.delete),1);save()}if(t.dataset.ideas!==undefined)showIdeas(Number(t.dataset.ideas))};
+render();
+</script>
+</body>
+</html>
