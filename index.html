@@ -32,7 +32,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const categories=["Косметика и уход","Одежда и аксессуары","Украшения","Книги","Игры и технологии","Аниме и фандомы","Уют и декор","Сладости","Творчество","Впечатления","Парфюм","Сюрпризы"];
 const $=id=>document.getElementById(id), rootUrl=location.href.split('?')[0].split('#')[0];
-const DEFAULT_SUPABASE_URL='https://aecdeyjhmcncnetmacbv.supabase.co';
+const DEFAULT_SUPABASE_URL='https://aecdeyjhmcnetmacby.supabase.co';
 let supabase=null, currentRoom=null, currentUser=null, profiles=[], editingId=null;
 const interestBox=$('interests');
 categories.forEach(v=>{const l=document.createElement('label');l.className='check';l.innerHTML=`<input type="checkbox" value="${v}"><span>${v}</span>`;interestBox.appendChild(l)});
